@@ -27,7 +27,7 @@ git commit -m "Initial commit"
 ```bash
 git remote add origin https://github.com/您的用戶名/您的倉庫名.git
 git branch -M main
-git push -u origin main
+git push -u origin main --force
 ```
 
 ### 3. 部署到 GitHub Pages
