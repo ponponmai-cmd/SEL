@@ -8,41 +8,29 @@
 - **感恩日記**：每日 6 分鐘書寫，培養專注於美好的習慣。
 - **情緒追蹤**：觀察心情波動，更了解自我的狀態。
 
-## 如何在 GitHub 上發布與部署
+## 如何直接上傳到 GitHub (網頁操作版)
 
-### 1. 初始化 Git 倉庫
+如果您不想使用終端機（Command Line），可以按照以下方式操作：
 
-在您的本地終端中輸入：
+### 1. 在 GitHub 建立倉庫
+在 GitHub 點擊 **"New"** 建立一個新倉庫，名稱建議為 `mindful-journey`。
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
+### 2. 使用網頁上傳
+1. 在新倉庫的頁面，點擊 **"uploading an existing file"**。
+2. 將剛才從 AI Studio 下載並**解壓縮後**的所有檔案（除了 `node_modules` 如果有的話）拖拽進去。
+3. 點擊 **"Commit changes"**。
 
-### 2. 推送到 GitHub
+### 3. 自動部署網頁 (GitHub Actions)
+我已經幫您配置好了 **GitHub Actions**。當您將檔案上傳到 `main` 分支後：
+1. 前往倉庫的 **Actions** 頁籤，您會看到一個名為 "Deploy to GitHub Pages" 的工作正在運行。
+2. 等待它變為綠色。
+3. 前往 **Settings > Pages**，將 **Build and deployment > Source** 設置為 `Deploy from a branch`。
+4. 在 **Branch** 選擇 `gh-pages` 分支。
+5. 您的網頁就會在大約 1 分鐘後透過該網址自動上線！
 
-在 GitHub 上創建一個新的倉庫，然後執行：
+---
 
-```bash
-git remote add origin https://github.com/您的用戶名/您的倉庫名.git
-git branch -M main
-git push -u origin main --force
-```
-
-### 3. 部署到 GitHub Pages
-
-我們已經在 `package.json` 中配置了 `gh-pages`。只需執行：
-
-```bash
-npm run deploy
-```
-
-這會自動構建您的專案並將 `dist` 資料夾的內容推送到 `gh-pages` 分支。
-
-接著，前往 GitHub 倉庫的 **Settings > Pages**，確保來源設置為 `gh-pages` 分支，您的網站就會在大約幾分鐘後部署完成。
-
-## 技術棧
+## 如果您習慣使用指令 (CLI)...
 
 - React 19
 - Vite
